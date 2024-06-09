@@ -64,7 +64,9 @@ def main():
 
     print("\nArticles:")
     for article in articles:
-        print(Article(article["id"], article["title"], article["content"], article["author_id"], article["magazine_id"]))
+        # print(Article(article["id"], article["title"], article["content"], article["author_id"], article["magazine_id"]))
+        article = Article(article["id"], article["title"], article["content"], article["author_id"], article["magazine_id"])
+        print(f"Article ID: {article.id}, Title: {article.title}, Content: {article.content}, Author ID: {article.author_id}, Magazine ID: {article.magazine_id}")
 
 if __name__ == "__main__":
     main()

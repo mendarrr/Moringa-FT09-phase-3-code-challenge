@@ -1,3 +1,4 @@
+# File to establish connection to the database
 import sqlite3
 
 DATABASE_NAME = './database/magazine.db'
