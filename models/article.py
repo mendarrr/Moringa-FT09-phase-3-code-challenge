@@ -64,9 +64,7 @@ class Article:
         if type(magazine_id) is int and Magazine.find_by_id(magazine_id):
             self._magazine_id = magazine_id
         else:
-            raise ValueError(
-                "Magazine ID must reference a magazine in the database")
-
+            raise ValueError("Magazine ID must reference a magazine in the database")
     def author(self):
         from models.author import Author
         conn = get_db_connection()

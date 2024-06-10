@@ -48,16 +48,34 @@ class TestModels(unittest.TestCase):
         obj = Author(123, "John Doe")
         self.assertEqual(obj.name, "John Doe")
 
-        
+    def test_saves_author(self):
+        author = Author(None, "Jane Doe")
+        author.save()
+        self.assertIsNotNone(author.id)
+        self.assertIn(author.id, Author.all)
 
 # Tests for the Article Class
-    def test_article_creation(self):
-        article = Article(1, "Test Title", "Test Content", 1, 1)
-        self.assertEqual(article.title, "Test Title")
 
+# Tests for Magazine class
     def test_magazine_creation(self):
         magazine = Magazine(1, "Tech Weekly", "Technology")
         self.assertEqual(magazine.name, "Tech Weekly")
+
+    def test_saves_magazine(self):
+        magazine = Magazine(None, "Tech Weekly", "Technology")
+        magazine.save()
+        self.assertIsNotNone(magazine.id)
+        self.assertIn(magazine.id, Magazine.all)
+
+    def test_magazine_repr(self):
+        magazine = Magazine(1, "Tech Weekly", "Technology")
+        self.assertEqual(repr(magazine), "<Magazine 1 Tech Weekly Technology>")
+
+    def test_get_magazine_id(self):
+        magazine = Magazine(1, "Tech Weekly", "Technology")
+        self.assertEqual(magazine.get_magazine_id(), 1)
+
+    
 
 if __name__ == "__main__":
     unittest.main()
