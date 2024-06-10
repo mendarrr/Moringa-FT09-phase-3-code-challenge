@@ -76,6 +76,12 @@ class TestModels(unittest.TestCase):
         self.assertEqual(magazine.get_magazine_id(), 1)
 
     
+    def test_id_property(self):
+        magazine = Magazine(1, "Tech Weekly", "Technology")
+        self.assertEqual(magazine.id, 1)
 
+    def test_name_property(self):
+        magazine = Magazine(1, "Tech Weekly", "Technology")
+        self.assertEqual(magazine.name, "Tech Weekly")
 if __name__ == "__main__":
     unittest.main()
